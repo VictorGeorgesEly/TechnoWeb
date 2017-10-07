@@ -29,4 +29,8 @@ class C extends B {
         super.m();
         ((B) this).m();
     }
+
+    public static void main(String args[]) {
+        new C().test();
+   }
 }
