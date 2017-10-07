@@ -1,3 +1,5 @@
+package dblab.ex01D;
+
 public class C {
     private static void method1(int i, StringBuffer s) {
         i++; s.append("d");

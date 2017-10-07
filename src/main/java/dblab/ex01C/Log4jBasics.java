@@ -1,4 +1,4 @@
-package ex01C;
+package dblab.ex01C;
 
 import org.apache.log4j.*;
 
