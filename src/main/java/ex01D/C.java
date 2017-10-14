@@ -1,8 +1,9 @@
-package dblab.ex01D;
+package ex01D;
 
 public class C {
     private static void method1(int i, StringBuffer s) {
-        i++; s.append("d");
+        i++;
+        s.append("d");
     }
     public static void main(String [] args) {
         int i = 0;
@@ -12,3 +13,7 @@ public class C {
         // i=0, s='abcd'
     }
 }
+
+/*
+ * mvn exec:java -Dexec.mainClass="ex01D.C"
+ */

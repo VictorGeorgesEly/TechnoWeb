@@ -1,4 +1,4 @@
-package dblab.ex01F;
+package ex01F;
 
 import org.apache.log4j.Logger;
 
@@ -12,12 +12,12 @@ public class Circle {
     this.x = x;
     this.y = y;
     this.radius = radius;
+    log.debug("x=" + x + " y=" + y + " radius=" + radius);
   }
 
   public String toString() {
     return (
-      String.format("Circle with center (%d,%d) and radius %d
-      (Perimter is %, .2f)",
+      String.format("Circle with center (%d,%d) and radius %d (Perimter is %, .2f)",
       this.x,
       this.y,
       this.radius,

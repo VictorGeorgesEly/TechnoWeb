@@ -1,4 +1,4 @@
-package dblab.ex01E;
+package ex01E;
 
 class A {
     int x;
@@ -34,3 +34,7 @@ class C extends B {
         new C().test();
    }
 }
+
+/*
+ * mvn exec:java -Dexec.mainClass="ex01E.A"
+ */

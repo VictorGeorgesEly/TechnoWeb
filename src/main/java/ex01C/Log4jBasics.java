@@ -1,4 +1,4 @@
-package dblab.ex01C;
+package ex01C;
 
 import org.apache.log4j.*;
 
@@ -11,3 +11,7 @@ public class Log4jBasics {
     log.debug("DEBUG: Cool !");
   }
 }
+
+/*
+ * mvn exec:java -Dexec.mainClass="ex01C.Log4jBasics"
+ */
