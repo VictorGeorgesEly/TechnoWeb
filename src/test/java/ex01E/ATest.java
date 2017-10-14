@@ -1,9 +1,8 @@
-package ex01D;
+package ex01E;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import ex01D.C;
 
 public class CTest  extends TestCase {
 
@@ -17,10 +16,8 @@ public class CTest  extends TestCase {
 	}
 	public void testApp()
 	{
-		int i = 0;
-		StringBuffer s = new StringBuffer("abc");
-		C.method1(i, s);
-		assertEquals(i, 0);
-		assertEquals(s.toString(), "abcd");
+		C c = new C();
+		c.test();
+		assertEquals(c.a, 1);
 	}
 }

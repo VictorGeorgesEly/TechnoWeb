@@ -5,19 +5,15 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 public class CircleTest  extends TestCase {
-	/** * Create the test case * * @param testName name of the test case */
 
 	public CircleTest( String testName )
 	{
 		super( testName );
 	}
-
-	/** * @return the suite of tests being tested */
 	public static Test suite()
 	{
 		return new TestSuite( CircleTest.class );
 	}
-	/** * Rigourous Test :-) */
 	public void testApp()
 	{
 		Circle c1 = new Circle(0, 0, 5);

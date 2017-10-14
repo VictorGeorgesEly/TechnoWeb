@@ -12,13 +12,10 @@ public class Log4jBasicsTest extends TestCase
 	{
 		super( testName );
 	}
-
-	/** * @return the suite of tests being tested */
 	public static Test suite()
 	{
 		return new TestSuite( Log4jBasicsTest.class );
 	}
-	/** * Rigourous Test :-) */
 	public void testApp()
 	{
 		log.setLevel(Level.DEBUG);
