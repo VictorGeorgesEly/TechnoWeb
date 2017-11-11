@@ -11,3 +11,7 @@ public class Log4jBasics {
     log.debug("DEBUG: Cool !");
   }
 }
+
+/*
+ * mvn exec:java -Dexec.mainClass="ex01C.Log4jBasics"
+ */
