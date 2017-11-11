@@ -8,7 +8,7 @@ import java.sql.*;
  */
 public class CustomQuery {
 
-	protected static Logger log = Logger.getLogger(CustomQuery.class);
+	private static Logger log = Logger.getLogger(CustomQuery.class);
 
 	private static Connection connection = null;
 	private static Statement stmt = null;
@@ -41,7 +41,7 @@ public class CustomQuery {
 		}
 	}
 
-	public static void connectToDatabase(String url, String driver, String user, String pass) throws SQLException, Exception {
+	private static void connectToDatabase(String url, String driver, String user, String pass) throws SQLException, Exception {
 		Class.forName(driver);
 
 		pass = pass.equals(" ") ? "" : pass;
@@ -53,8 +53,7 @@ public class CustomQuery {
 
 	}
 
-
-	public static void executeRequest(String request) throws SQLException, Exception{
+	private static void executeRequest(String request) throws SQLException, Exception{
 		log.info("Creating statement...");
       	stmt = connection.createStatement();
 
@@ -62,8 +61,7 @@ public class CustomQuery {
       	rs = stmt.executeQuery(request);
 	}
 
-
-	public static void displayResult() throws SQLException, Exception {
+	private static void displayResult() throws SQLException, Exception {
 		ResultSetMetaData rsmd = rs.getMetaData();
       	int nb_column = rsmd.getColumnCount();
 
@@ -87,8 +85,7 @@ public class CustomQuery {
       	log.info("End of the request...");
 	}
 
-
-	public static void closeConnection() throws SQLException, Exception {
+	private static void closeConnection() throws SQLException, Exception {
 		rs.close();
       	stmt.close();
       	connection.close();
