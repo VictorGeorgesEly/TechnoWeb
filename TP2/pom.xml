@@ -40,17 +40,18 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.2.1</version>
         <executions>
-
           <execution>
             <id>customQuery</id>
             <goals>
               <goal>java</goal>
             </goals>
-            <configuration>
-              <mainClass>jdbcDataBase.DBDemo</mainClass>
-            </configuration>
           </execution>
         </executions>
+        
+        <configuration>
+            <mainClass>jdbcDataBase.DBDemo</mainClass>
+        </configuration>
+        
       </plugin>
     </plugins>
   </build>
