@@ -1,14 +1,18 @@
 package jdbcDataBase;
 import java.nio.file.*;
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class DBDemo {
@@ -26,6 +30,9 @@ public class DBDemo {
 	//iniatilized tables;
 	static ResultSet rs=null;
 	static Set<String> tableNames=new HashSet<String>();
+	
+	//for primary ket;
+	static Map<String,String> map=new HashMap<String,String>();
 	
 	public DBDemo(String url,String username,String userpassword){
 		this.url=url;
@@ -75,7 +82,6 @@ public class DBDemo {
 			DBTable dbTable=DBTableFactory.DBTableFactory(rs.getString("TABLE_NAME"));
 			dataBase.tables.add(dbTable);
 			tableNames.add(rs.getString("TABLE_NAME"));
-			//System.out.println("check this out"+rs.getString("TABLE_NAME"));
 		}
 		
 		for(DBTable table:dataBase.tables){
@@ -93,6 +99,22 @@ public class DBDemo {
 		    while(resultSet.next()){
 		    	DBColumn dbColumn=DBColumnFactory.DBColumnFactory(resultSet);
 				table.columns.add(dbColumn);
+		    } 
+		    //get the primary ket;
+		    try{
+		    ResultSet rSetPK = getConnected().getPrimaryKeys(null, null,table.tableName);
+		    /*
+		    String check= (rSetPK==null)? "Yes":"No";
+		    System.out.println("The setPK is empty:"+check);
+		    */
+		    
+		    while(rSetPK.next()){
+		    	//System.out.println("column name is: "+rSetPK.getString("COLUMN_NAME"));
+		    	map.put(rSetPK.getString("COLUMN_NAME"),table.tableName);
+		    }
+		   
+		    }finally{
+		    	System.out.println("");
 		    }
 		    
 		}
@@ -104,8 +126,14 @@ public class DBDemo {
 		sb.append(System.getProperty("line.separator")); 
 		String s=dataBase.toSQL();
 		sb.append(s);
-		System.out.println(sb.toString());
-
+	
+		//set primary key;
+		for(Map.Entry m:map.entrySet()){ 
+			String pk="ALTER TABLE "+m.getKey()+" ADD PRIMARY KEY ("+m.getValue()+");";
+			sb.append(pk);
+			sb.append(System.getProperty("line.separator")); 
+		}  
+	
 	    //writing sql to the file;
 		Writer writer = null;
 		try {

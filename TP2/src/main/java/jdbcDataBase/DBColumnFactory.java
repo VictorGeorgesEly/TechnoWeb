@@ -9,6 +9,7 @@ public class DBColumnFactory {
 	
     public static DBColumn DBColumnFactory(ResultSet columnRS) throws SQLException
     {
+    	
         String columnName = columnRS.getString("COLUMN_NAME");
         
         String datatype = columnRS.getString("DATA_TYPE");
@@ -22,7 +23,7 @@ public class DBColumnFactory {
         
         String isAutoIncrement = columnRS.getString("IS_AUTOINCREMENT");
         String isAutoIncrementBool = (isAutoIncrement == "YES") ? " AUTO_INCREMENT" : "";
-        
+       
         if(typeName.trim().toUpperCase().contains("SMALLINT UNSIGNED")){
         	typeName="SMALLINT";
         	DBColumn.SQLType colType = DBColumn.SQLType.valueOf(typeName);

@@ -146,3 +146,16 @@ city VARCHAR (50)NOT NULL
 country VARCHAR (50)NOT NULL
 SID TINYINT (3)NOT NULL
 );
+ALTER TABLE store_id ADD PRIMARY KEY (store);
+ALTER TABLE inventory_id ADD PRIMARY KEY (inventory);
+ALTER TABLE address_id ADD PRIMARY KEY (address);
+ALTER TABLE language_id ADD PRIMARY KEY (language);
+ALTER TABLE rental_id ADD PRIMARY KEY (rental);
+ALTER TABLE category_id ADD PRIMARY KEY (film_category);
+ALTER TABLE payment_id ADD PRIMARY KEY (payment);
+ALTER TABLE staff_id ADD PRIMARY KEY (staff);
+ALTER TABLE actor_id ADD PRIMARY KEY (film_actor);
+ALTER TABLE film_id ADD PRIMARY KEY (film_text);
+ALTER TABLE customer_id ADD PRIMARY KEY (customer);
+ALTER TABLE country_id ADD PRIMARY KEY (country);
+ALTER TABLE city_id ADD PRIMARY KEY (city);
